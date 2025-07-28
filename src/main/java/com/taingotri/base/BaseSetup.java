@@ -1,6 +1,7 @@
 package com.taingotri.base;
 
 import java.time.Duration;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -13,9 +14,8 @@ public class BaseSetup {
 
     private WebDriver driver;
 
-    static String driverPath = "src\\main\\resources";
+    static String driverPath = "src\\main\\resources\\drivers";
 
-    // lấy giá trị trả về của driver đã được khởi tạo
     public WebDriver getDriver() {
         return driver;
     }
@@ -40,7 +40,7 @@ public class BaseSetup {
 
     private static WebDriver initChromeDriver(String appURL) {
         System.out.println("Launching Chrome browser...");
-        System.setProperty("webdriver.chrome.driver", driverPath + "drivers/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", driverPath + "chromedriver.exe");
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.navigate().to(appURL);
@@ -61,7 +61,7 @@ public class BaseSetup {
     }
 
     // Chạy hàm initializeTestBaseSetup trước hết khi class này được gọi
-    @Parameters({"browserType","appURL"}) // truyền 2 cái parameter vào TestNG.xml
+    @Parameters({ "browserType", "appURL" })
     @BeforeClass
     public void initializeTestBaseSetup(String browserType, String appURL) {
         try {
@@ -78,4 +78,3 @@ public class BaseSetup {
         driver.quit();
     }
 }
-

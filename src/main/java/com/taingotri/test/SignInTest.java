@@ -15,7 +15,6 @@ public class SignInTest extends BaseSetup {
 
     @BeforeClass
     public void setUp() {
-        // Đã khởi tạo browser, kể cả wait, phóng to màn hình,...
         driver = getDriver();
     }
 
@@ -30,4 +29,5 @@ public class SignInTest extends BaseSetup {
         signInPage.signin("thaian@mailinator.com", "Demo@123", "123456");
 
     }
+
 }

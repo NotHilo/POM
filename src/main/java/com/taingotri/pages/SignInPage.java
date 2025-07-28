@@ -26,7 +26,7 @@ public class SignInPage {
     private By resetPintBtn = By.id("RequestPinForm_ResetPin");
 
     // Khởi tạo class khi được gọi và truyền driver vào để các thành phần trong
-    // class này đọc
+    // class này đọc là constructor
     public SignInPage(WebDriver driver) {
         this.driver = driver;
     }
